@@ -2,15 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	 <!-- Compiled and minified CSS -->
+	 <!-- Compiled and minified Materialize CSS import-->
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-	 <!-- Compiled and minified JavaScript -->
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<title>index</title>
 </head>
 <body>
-	<nav>
+	<div class = "navbar-fixed">
+	<nav class="teal">
 		<div class="nav-wrapper">
 		  <a href="#" class="brand-logo">KenyaDelivers</a>
 		  <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -19,7 +17,8 @@
 			<li><a href="collapsible.html">Investors</a></li>
 		  </ul>
 		</div>
-	  </nav>	
+	  </nav>
+	</div>	
 <h2>Home</h2>
 	{% block content %}
 	{% endblock %}
@@ -48,5 +47,7 @@
 		  </div>
 		</div>
 	  </footer>
+	   <!-- Compiled and minified JavaScript -->
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
