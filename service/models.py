@@ -1,5 +1,11 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from datetime import datetime
+
+from django.utils.safestring import mark_safe
+# for media cleanup
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 
 # Create your models here.
 class User(AbstractUser):
@@ -23,6 +29,34 @@ class User(AbstractUser):
         super().__init__(*args,**kwargs)
 
 
+class Agency(models.Model):
+        Title = models.CharField(max_length=50, null=False,blank=False)
+        Description = models.TextField(max_length=250)
+        Link = models.URLField(null=False, blank=False)
+        Cover = models.ImageField(upload_to='images/', null=True)
+        Added = models.DateTimeField(auto_now_add=True)
+
+
+       # def  image_tag(self):
+       #     return mark_safe('<img src="/../../media/%s" width="150" height="150" />' % (self.Cover))
+    
+        def image_tag(self):
+            return mark_safe('<img src="{}" width="150" height="150" style"object-fit:contain" />'.format(self.Cover.url))
+        
+        
+        image_tag.allow_tags = True
+
+
+        def  __str__(self):
+            return  self.Title
+
+        class  Meta:
+            verbose_name_plural  =  "Agencies"  
+        
+@receiver(post_delete,sender=Agency)
+def submission_del(sender,instance,**kwargs):
+    instance.Cover.delete(False)        
+    
 #class Editors(AbstractUser):
  #   username = models.CharField(max_length =30)
 
