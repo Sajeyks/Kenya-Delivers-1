@@ -54,7 +54,7 @@ and lets them keep track of how their politicians are performing.
   4. Now go ahead and run:
 
      ```bash
-     py manage.py makemigrations
+     py manage.py makemigrations 
      ``` 
      then
      ```bash

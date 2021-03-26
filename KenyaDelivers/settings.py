@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 
 TINYMCE_DEFAULT_CONFIG = {
     'height': 360,
-    'width': 1120,
+    'width': 800,
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 20,
     'selector': 'textarea',
@@ -70,6 +70,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'service',
     'tinymce',
+    'django_cleanup.apps.CleanupConfig',# ryt under ur apps
+
+    
 ]
 
 MIDDLEWARE = [

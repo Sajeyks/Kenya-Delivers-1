@@ -22,7 +22,7 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=30, null=False,blank=False)
     last_name = models.CharField(max_length=30,null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
-    date_of_birth = models.DateField(null=False, blank=False)
+    date_of_birth = models.DateField
     county = models.CharField(max_length=30 ,choices=CHOICES)
 
     def __init__(self, *args, **kwargs):
@@ -31,17 +31,17 @@ class User(AbstractUser):
 
 class Agency(models.Model):
         Title = models.CharField(max_length=50, null=False,blank=False)
-        Description = models.TextField(max_length=250)
+        Description = models.TextField()
         Link = models.URLField(null=False, blank=False)
-        Cover = models.ImageField(upload_to='images/', null=True)
+        Cover = models.ImageField(upload_to='images/')
         Added = models.DateTimeField(auto_now_add=True)
 
 
-       # def  image_tag(self):
-       #     return mark_safe('<img src="/../../media/%s" width="150" height="150" />' % (self.Cover))
+        def  image_tag(self):
+            return mark_safe('<img src="/../../media/%s" width="150" height="150" />' % (self.Cover))
     
-        def image_tag(self):
-            return mark_safe('<img src="{}" width="150" height="150" style"object-fit:contain" />'.format(self.Cover.url))
+        #def image_tag(self):
+        #    return mark_safe('<img src="{}" width="150" height="150" style"object-fit:contain" />'.format(self.Cover.url))
         
         
         image_tag.allow_tags = True
