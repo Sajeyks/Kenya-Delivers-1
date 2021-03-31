@@ -1,7 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-# Create your models here.
 class User(AbstractUser):
     # county choices
     KEN_COUNTIES =(
@@ -16,7 +15,7 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=30, null=False,blank=False)
     last_name = models.CharField(max_length=30,null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
-    date_of_birth = models.DateField(null=False, blank=False)
+    date_of_birth = models.DateField(null=True, blank=True)
     county = models.CharField(max_length=30 ,choices=KEN_COUNTIES)
 
     def __init__(self, *args, **kwargs):
