@@ -22,6 +22,15 @@ class User(AbstractUser):
         super().__init__(*args,**kwargs)
 
 
+class Post(AbstractUser):
+    user_name = models.CharField(max_length=30)
+    image = models.ImageField(height_field='100px',width_field='200px')
+    description = models.CharField(max_length=2000, null=False, blank=False)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+
 #class Editors(AbstractUser):
  #   username = models.CharField(max_length =30)
 
