@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'index.html' %}
 
 {% block title %}Register{% endblock %}
@@ -49,11 +50,13 @@ class Migration(migrations.Migration):
     ]
 
 {% block content %}
+=======
+{% extends 'base.html' %} {% block title %}Register{% endblock %} {% block content %}
+>>>>>>> 16fd17cfc9f83327a049708ca5cdbaa025e9cb66
 <h3>Register</h3>
-	<form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button class="btn btn-success ml-2" type="submit">Register</button>
-    </form>
+<form method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <button class="btn btn-success ml-2" type="submit">Register</button>
+</form>
 
 {% endblock %}
