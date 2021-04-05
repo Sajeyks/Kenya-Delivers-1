@@ -85,3 +85,18 @@ We're building the web platform using Python's Django web framework.
    ```bash
    py manage.py migrate --run-syncdb
    ```
+
+## ISSUES:
+
+## a)
+
+# Got a `HEAD detached from KenyaDelivers/main` error that slowed the pushing process.
+
+## Solution
+
+After commit do the following:
+
+1. create a new branch (temporary) - `git branch temporary_branch`
+2. checkout of the current branch you're working on - `git checkout master `
+3.  merge the temporary branch - `git merge temporary_branch`
+
