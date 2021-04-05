@@ -90,7 +90,7 @@ We're building the web platform using Python's Django web framework.
 
 ## a)
 
-# Got a `HEAD detached from KenyaDelivers/main` error that slowed the pushing process.
+## Got a `HEAD detached from KenyaDelivers/main` error that slowed the pushing process.
 
 ## Solution
 
