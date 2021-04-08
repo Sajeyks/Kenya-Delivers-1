@@ -1,7 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from datetime import datetime
-
 from django.utils.safestring import mark_safe
 # for media cleanup
 from django.db.models.signals import post_delete
@@ -27,6 +26,25 @@ class User(AbstractUser):
     def __init__(self, *args, **kwargs):
         super().__init__(*args,**kwargs)
 
+class Category(models.Model):
+    category = models.CharField(max_length=50, null=False,blank=False,default='General')
+    Cover = models.ImageField(upload_to='images/')
+
+    def cover_tag(self):
+        return mark_safe('<img src="/../../media/%s" width="150" height="150" />' % (self.Cover))
+
+    cover_tag.allow_tags = True
+
+    def __str__(self):
+        return self.category
+
+    class Meta:
+        verbose_name_plural = "Categories"    
+
+@receiver(post_delete,sender=Category)
+def submission_del(sender,instance,**kwargs):
+    instance.Cover.delete(False)        
+
 
 class Agency(models.Model):
         Title = models.CharField(max_length=50, null=False,blank=False)
@@ -35,16 +53,10 @@ class Agency(models.Model):
         Cover = models.ImageField(upload_to='images/')
         Added = models.DateTimeField(auto_now_add=True)
 
-
         def  image_tag(self):
             return mark_safe('<img src="/../../media/%s" width="150" height="150" />' % (self.Cover))
     
-        #def image_tag(self):
-        #    return mark_safe('<img src="{}" width="150" height="150" style"object-fit:contain" />'.format(self.Cover.url))
-        
-        
         image_tag.allow_tags = True
-
 
         def  __str__(self):
             return  self.Title
