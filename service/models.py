@@ -27,19 +27,20 @@ class User(AbstractUser):
         super().__init__(*args,**kwargs)
 
 class Category(models.Model):
-    category = models.CharField(max_length=50, null=False,blank=False,default='General')
-    Cover = models.ImageField(upload_to='images/')
+        category = models.CharField(max_length=50, null=False,blank=False,default='General')
+        Cover = models.ImageField(upload_to='images/')
+        category_summary= models.CharField(max_length=200,default=" ")
 
-    def cover_tag(self):
-        return mark_safe('<img src="/../../media/%s" width="150" height="150" />' % (self.Cover))
+        def cover_tag(self):
+            return mark_safe('<img src="/../../media/%s" width="150" height="150" />' % (self.Cover))
 
-    cover_tag.allow_tags = True
+        cover_tag.allow_tags = True
 
-    def __str__(self):
-        return self.category
+        def __str__(self):
+            return self.category
 
-    class Meta:
-        verbose_name_plural = "Categories"    
+        class Meta:
+            verbose_name_plural = "Categories"    
 
 @receiver(post_delete,sender=Category)
 def submission_del(sender,instance,**kwargs):
@@ -48,6 +49,7 @@ def submission_del(sender,instance,**kwargs):
 
 class Agency(models.Model):
         Title = models.CharField(max_length=50, null=False,blank=False)
+        categories = models.ForeignKey(Category,default=" ",verbose_name="Categories",on_delete=models.SET_DEFAULT)
         Description = models.TextField()
         Link = models.URLField(null=False, blank=False)
         Cover = models.ImageField(upload_to='images/')
