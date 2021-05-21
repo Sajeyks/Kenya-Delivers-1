@@ -3,54 +3,393 @@
 <html>
 
 <head>
-    <!-- Compiled and minified CSS -->
+    <!-- Import Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <title>index</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>KenyaDelivers</title>
+    <link href="css/index.css" rel="stylesheet">
 </head>
 
-<body>
+<body id="home" class="scrollspy">
+    <!--Section Navbar-->
     <div class = "navbar-fixed">
         <nav class="teal" >
-            <div class="nav-wrapper">
-            <a href="https://kenyadelivers.co.ke" class="brand-logo" >KenyaDelivers</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Tenders</a></li>
-                <li><a href="badges.html">Government</a></li>
-                <li><a href="collapsible.html">Investors</a></li>
+            <div class="nav-wrapper black-text">
+            <a href="https://kenyadelivers.co.ke" class="brand-logo" >
+                <img src="{% static 'images/kdlogo1.jpg' %}" alt="kenyadelivers" width="270" height="63">
+            </a>
+            <a href="#" data-target = "mobile-nav" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <ul id="nav-mobile" class="right hide-on-med-and-down ">
+                <li class="light black-text text-lighten-3"><a href="#search">Search</a></li>
+                <li class="light grey-text text-lighten-3"><a href="badges.html">Tenders</a></li>
+                <li class="light grey-text text-lighten-3"><a href="collapsible.html">Government</a></li>
             </ul>
-        </div>
-    </nav>
+            </div>
+        </nav>
     </div>
-    <h2>Home</h2>
-    {% block content %} {% endblock %}
-    <footer class="page-footer">
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="sass.html">Search</a></li>
+        <li><a href="badges.html">Tenders</a></li>
+        <li><a href="collapsible.html">Government</a></li>
+    </ul>
+
+    <!--Section Slider -->
+    <section class="slider">
+        <ul class="slides">
+              <li>
+                <img src="{% static 'images/nairobi-kenya.jpg' %}"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>KenyaDelivers</h3>
+                  <h5 class="light grey-text text-lighten-3
+                  hide-on-small-only">Bringing you out of chaos</h5>
+                </div>
+              </li>
+              <li>
+                <img src="{% static 'images/mt-kenya.jpg' %}"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>We exist to organize</h3>
+                  <h5 class="light grey-text text-lighten-3
+                  hide-on-small-only">Experience an organized online visit</h5>
+                </div>
+              </li>
+              <li>
+                <img src="{% static 'images/vasco.jpg' %}"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>KenyaDelivers</h3>
+                  <h5 class="light grey-text text-lighten-3
+                  hide-on-small-only">The home of order</h5>
+                </div>
+              </li>
+              <li>
+                <img src="{% static 'images/site2.jpg' %}"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>One Stop</h3>
+                  <h5 class="light grey-text text-lighten-3
+                  hide-on-small-only">For all online goverment services and opportunities </h5>
+                </div>
+              </li>
+            </ul>
+    </section>
+
+    <!--Section Search-->
+    <section id="search" class="section section-search teal darken-1 white-text center scrollspy">
         <div class="container">
             <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <div class="col s12">
+                    <h3>Search</h3>
+                    <div class="input-field">
+                        <input type="text" class="white grey-text autocomplete"
+                        id="autocomplete-input" placeholder="KRA, eCitizen, Helb">
+                    </div>
+
                 </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </div>
+        </div>
+    </section>
+
+    {% block content %}
+    {% endblock%}
+        
+    <!--Popular Websites-->
+    <section id="popular" class="section section-popular scrollspy">
+        <div class="container">
+            <div class="row">
+                <h4 class="center">
+                    <span class="teal-text">Popular</span> Websites
+                </h4>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="https://itax.kra.go.ke/KRA-Portal/">
+                            <img src="{%static 'images/kra-1.jpg'%}" alt="kra">
+                            <span class="card-title">
+                                KRA
+                            </span>
+                            </a>
+                        </div>
+                        <div class="card content">
+                            File your Taxes in time, avoid penalties
+                        </div>
+                        <div class="button teal darken-2 white-text center">
+                            <a href="https://itax.kra.go.ke/KRA-Portal/">See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="https://www.ecitizen.go.ke/">
+                            <img src="{%static 'images/ecitizen.jpg'%}" alt="e-citizen">
+                            <span class="card-title">
+                                <b>eCitizen</b>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="card content">
+                            Access goverment services online
+                        </div>
+                        <div class="button teal darken-2 white-text center ">
+                            <a href="https://www.ecitizen.go.ke/">See More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="https://www.helb.co.ke/student-portal/">
+                            <img src="{%static 'images/helb.jpg'%}" alt="helb">
+                            <span class="card-title">
+                                <b>HELB</b>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="card content">
+                            Higher Education Loans Board is an organization that gives loans,
+                             bursaries and scholarships for training at public institutions
+                             recognized by the Ministry of Education of Kenya.
+                        </div>
+                        <div class="button teal darken-2 white-text center ">
+                            <a href="https://www.helb.co.ke/student-portal/">See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="https://www.ajiradigital.go.ke/home">
+                            <img src="{%static 'images/ajira.jpg'%}" alt="ajira">
+                            <span class="card-title">
+                                Ajira Digital
+                            </span>
+                        </a>
+                        </div>
+                        <div class="card content">
+                            Ajira Digital is a place for online jobs
+                        </div>
+                        <div class="button teal darken-2 white-text center">
+                            <a href="https://www.ajiradigital.go.ke/home">See More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="https://students.kuccps.net/">
+                            <img src="{%static 'images/kuccps1.jpg'%}" alt="kuccps">
+                            <span class="card-title">
+                                <b>KUCCPS</b>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="card content">
+                            Kenya Universities and Colleges Central Placement Service (KUCCPS) 
+                            is the body responsible for placing Kenyan students in public universities
+                            once the KCSE results are out. 
+                        </div>
+                        <div class="button teal darken-2 white-text center ">
+                            <a href="https://students.kuccps.net/">See More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="http://www.nhif.or.ke/healthinsurance/">
+                            <img src="{%static 'images/nhif.jpg'%}" alt="nhif">
+                            <span class="card-title">
+                                <b>NHIF</b>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="card content">
+                            The National Hospital Insurance Fund is a state body that is mandated to 
+                            provide health insurance to Kenyans over the age of 18.
+                        </div>
+                        <div class="button teal darken-2 white-text center ">
+                            <a href="http://www.nhif.or.ke/healthinsurance/">See More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="https://www.ntsa.go.ke/">
+                            <img src="{%static 'images/ntsa.jpg'%}" alt="ntsa">
+                            <span class="card-title">
+                                <b>NTSA</b>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="card content">
+                           National Transport Safety Authority
+                        </div>
+                        <div class="button teal darken-2 white-text center ">
+                            <a href="https://www.ntsa.go.ke/">See More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="www.ghris.go.ke">
+                            <img src="{%static 'images/Ghris010.jpg'%}" alt="ghris">
+                            <span class="card-title">
+                                <b>GHRIS</b>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="card content">
+                            Government Employees
+                        </div>
+                        <div class="button teal darken-2 white-text center ">
+                            <a href="www.ghris.go.ke">See More</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="https://www.tsc.go.ke/">
+                            <img src="{%static 'images/tsc.jpg'%}" alt="tsc">
+                            <span class="card-title">
+                                <b>TSC</b>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="card content">
+                            Teachers Service Commission
+                        </div>
+                        <div class="button teal darken-2 white-text center ">
+                            <a href="https://www.tsc.go.ke/">See More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    
+    <!--Follow Section-->
+    <section class="section section-follow teal darken-2 white-text center">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h4>Follow KenyaDelivers</h4>
+                    <p>Follow us on social media for more updates</p>
+                   <a href="#" class="white-text">
+                       <i class="fab fa-facebook fa-4x"></i>
+                   </a>
+                    <a href="#" class="white-text">
+                        <i class="fab fa-twitter fa-4x"></i>
+                    </a>
+                    <a href="##" class="white-text">
+                        <i class="fab fa-linkedin fa-4x"></i>
+                    </a>
+                    <a href="##" class="white-text">
+                        <i class="fab fa-instagram fa-4x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Contact Section-->
+    <section id="contact" class="section section-contact scrollspy">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card-panel teal white-text center">
+                        <i class="material-icons">email</i>
+                        <h5>Contact us via email </h5>
+                        <p>Feel free to contact us for business, opportunities or updates</p>
+                    </div>
+                    <ul class="collection with-header">
+                        <li class="collection-header"><h5>Location</h5></li>
+                        <li class="collection-items">KenyaDelivers</li></br>
+                        <li class="collection-items">234 Nchiru, Meru-Mau Rd</li></br>
+                        <li class="collection-items">Meru,Kenya</li>
                     </ul>
                 </div>
+                <div class="col s12 m6">
+                    <div class="card-panel grey lighten-3">
+                        <h4>Please Fill out this form</h4>
+                        <div class="input-field">
+                            <input type="text" placeholder="Name">
+                        </div>
+                        <div class="input-field">
+                            <input type="email" placeholder="email">
+                        </div>
+                        <div class="input-field">
+                            <input type="text" placeholder="phone">
+                        </div>
+                        <div class="input-field">
+                            <textarea class="materialize-textarea" placeholder="Message"></textarea>
+                        </div>
+                        <div>
+                            <input type="submit" value="Submit" class="btn">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © KenyaDelivers
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
+    </section>
+    
+    <!-- Footer Section-->
+    <footer class="section teal darken-2 white-text center">
+        <p class="flow-text">KenyaDelivers&copy;2018</p>
     </footer>
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
+    <script>
+        // Sidenv
+        const sideNav = document.querySelector('.sidenav');
+        M.Sidenav.init(sideNav, {});
 
+        // slider
+        const slider = document.querySelector('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 500,
+            transition: 500,
+            interval: 6000
+
+        });
+        
+        // AutoComplete
+        const ac =  document.querySelector('.autocomplete');
+        M.Autocomplete.init(ac, {
+            data: {
+                "kra": null,
+                "helb": null,
+                "education": null,
+                "police": null,
+                "lands": null,
+                "innovation": null,
+                "housing": null,
+                "health": null,
+                "judiciary": null,
+                "rights": null,
+                "agriculture": null,
+                "forestry": null,
+            }
+        });
+
+        // Scrollspy
+        const ss = document.querySelectorAll('.scrollspy');
+        M.Scrollspy.init(ss, {});
+    </script>
+</body>
 </html>
