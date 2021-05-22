@@ -28,13 +28,27 @@ class User(AbstractUser):
         super().__init__(*args,**kwargs)
 
 
-class Agency(models.Model):
-        Title = models.CharField(max_length=50, null=False,blank=False)
-        Description = models.TextField()
-        Link = models.URLField(null=False, blank=False)
-        Cover = models.ImageField(upload_to='images/')
-        Added = models.DateTimeField(auto_now_add=True)
+class agencyCategory(models.Model):
+    agency_logo = models.CharField(max_length=50,null=False, blank=False)
+    agency_Category = models.CharField(max_length=50, null=False,blank=False)
+    category_Summary = models.TextField(max_length=200)
+    category_slug = models.CharField(max_length=200,default=1)
 
+    def  __str__(self):
+            return  self.agency_Category
+
+    class  Meta:
+        verbose_name_plural  =  "Categories"
+
+
+class Agency(models.Model):
+        agency_Title = models.CharField(max_length=50, null=False,blank=False)
+        agency_Description = models.TextField()
+        agency_Link = models.URLField(null=False, blank=False)
+        agency_Cover = models.ImageField(upload_to='images/')
+        agency_Added = models.DateTimeField(auto_now_add=True)
+        agency_Category = models.ForeignKey(agencyCategory,default=1,verbose_name="Category",on_delete=models.SET_DEFAULT)
+        agency_slug = models.CharField(max_length=200,default=1)
 
         def  image_tag(self):
             return mark_safe('<img src="/../../media/%s" width="150" height="150" />' % (self.Cover))

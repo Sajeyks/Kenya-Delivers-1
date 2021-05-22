@@ -73,6 +73,8 @@ We're building the web platform using Python's Django web framework.
 ## Error =>
 
  `django.db.utils.OperationalError: no such table: service_user`
+ or 
+ `django.db.utils.OperationalError: no such table: django_admin_log`
 
 ## Reason =>
 

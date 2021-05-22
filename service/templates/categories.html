@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<!--Section Icon Boxes-->
+<section class="section section-icons grey lighten-4 center">
+    <div class="container">
+
+        <div class="row">
+            {% for cat in categories %}
+            <div class="col s12 m4">
+                <a href="{{cat.ategory_slug}}">
+                <div class="card-panel">
+                    
+                    <i class="material-icons large teal-text">{{cat.agency_logo}}</i>
+                    
+                    <h4>{{cat.agency_Category}}</h4>
+                    <p>{{cat.category_Summary}}</p>                  
+                </div></a>                   
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<div class="divider "></div>
+
+{% endblock %}
