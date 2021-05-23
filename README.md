@@ -51,6 +51,14 @@ We're building the web platform using Python's Django web framework.
         ]
 
         ```
+      and at the bottom comment:
+      ```py
+      #admin.site.site_header = "K-Delivers"
+      #admin.site.site_title = "K-Delivers Admin Portal"
+      #admin.site.index_title = "Welcome to K-Delivers Portal"
+
+      ```
+
 
   4. Now go ahead and run:
 
