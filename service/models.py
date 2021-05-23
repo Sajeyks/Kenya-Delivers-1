@@ -53,9 +53,6 @@ class Agency(models.Model):
         def  image_tag(self):
             return mark_safe('<img src="/../../media/%s" width="150" height="150" />' % (self.agency_Cover))
     
-        #def image_tag(self):
-        #    return mark_safe('<img src="{}" width="150" height="150" style"object-fit:contain" />'.format(self.Cover.url))
-        
         
         image_tag.allow_tags = True
 
@@ -70,11 +67,5 @@ class Agency(models.Model):
 def submission_del(sender,instance,**kwargs):
     instance.Cover.delete(False)        
     
-#class Editors(AbstractUser):
- #   username = models.CharField(max_length =30)
-
-  #  def __init__(self):
-   #     return self.username
-        
 
 
