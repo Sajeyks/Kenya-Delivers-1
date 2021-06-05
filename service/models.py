@@ -47,7 +47,7 @@ class Agency(models.Model):
         agency_Cover = models.ImageField(upload_to='images/')
         agency_Added = models.DateTimeField(auto_now_add=True)
         agency_Category = models.ForeignKey(agencyCategory,default=1,verbose_name="Category",on_delete=models.SET_DEFAULT)
-
+        is_porpular = models.BooleanField(default=False, verbose_name="Porpular ? ")
         def  image_tag(self):
             return mark_safe('<img src="/../../media/%s" width="150" height="150" />' % (self.agency_Cover))
     

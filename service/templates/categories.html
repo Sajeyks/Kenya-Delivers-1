@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% load static %}
 {% block content %}
 
 <!--Section Icon Boxes-->
@@ -25,5 +26,42 @@
 </section>
 
 <div class="divider "></div>
+
+
+ <!--Popular Websites-->
+ <section id="popular" class="section section-popular scrollspy">
+    <div class="container">
+        <div class="row">
+            <h4 class="center">
+                <span class="teal-text">Popular</span> Websites
+            </h4>
+
+
+            
+        {% for p in popular %}
+            
+                    <div class="col s12 m4 l3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ p.agency_Cover.url }}">
+                                <span class="card-title">{{p.agency_Title}}</span>
+                            </div>
+                            <div class="card-content">
+                                {{ p.agency_Description }}
+                            </div>
+                            <div class="card-action">
+                                <a href="{{ p.agency_Link }}">VISIT</a>
+                            </div>
+                        </div>
+                    </div>
+                
+        {% endfor %}
+            
+           
+         
+        </div>
+    </div>
+</section>
+
 
 {% endblock %}
