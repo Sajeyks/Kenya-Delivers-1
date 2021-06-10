@@ -24,7 +24,7 @@
             </a>
 
             <ul id="nav-mobile" class="right hide-on-med-and-down ">
-                <li class="light black-text text-lighten-3"><a href="#search">Search</a></li>
+                <li class="light black-text text-lighten-3"><a href="/search">Search</a></li>
                 <li class="light grey-text text-lighten-3"><a href="badges.html">Tenders</a></li>
                 <li class="light grey-text text-lighten-3"><a href="collapsible.html">Government</a></li>
             </ul>
@@ -76,6 +76,7 @@
     </section>
 
     <!--Section Search-->
+    <form action= "{% url "searchResults" %}" >
     <section id="search" class="section section-search teal darken-1 white-text center scrollspy">
         <div class="container">
             <div class="row">
@@ -83,13 +84,14 @@
                     <h3>Search</h3>
                     <div class="input-field">
                         <input type="text" class="white grey-text autocomplete"
-                        id="autocomplete-input" placeholder="KRA, eCitizen, Helb">
+                        id="autocomplete-input" placeholder="KRA, eCitizen, Helb" name = "search">
                     </div>
 
                 </div>
             </div>
         </div>
-    </section>
+     </section>
+  </form>
 
     {% block content %}
     {% endblock%}

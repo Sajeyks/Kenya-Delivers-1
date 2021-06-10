@@ -65,5 +65,3 @@ class Agency(models.Model):
 def submission_del(sender,instance,**kwargs):
     instance.Cover.delete(False)        
     
-
-

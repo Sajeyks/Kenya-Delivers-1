@@ -1,6 +1,7 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from .models import Agency,agencyCategory
+from django.db.models import Q
 
 
 def homepage(request):
@@ -29,3 +30,15 @@ def agencies_category(request, category):
 	
 	
 	return render(request, "agencies.html", context)
+
+
+def searchResults(request):
+	search_agency = request.GET.get('search')
+
+	if search_agency:
+		agency = Agency.objects.filter(Q(agency_Title__icontains=search_agency ) | Q(agency_Description__icontains=search_agency))
+	else:
+		agency = Agency.objects.all()	
+
+
+	return render(request, "search.html", {'agency':agency})

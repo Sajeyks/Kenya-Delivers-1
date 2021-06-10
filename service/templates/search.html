@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<!--Section Icon Boxes-->
+<section class="section section-icons grey lighten-4 center">
+    <div class="container">
+
+        <div class="row">
+
+
+            {% for agent in agency %}
+                    <div class="col s12 m4 l3">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ agent.agency_Cover.url }}">
+                                <span class="card-title">{{agent.agency_Title}}</span>
+                            </div>
+                            <div class="card-content">
+                                {{ agent.agency_Description }}
+                            </div>
+                            <div class="card-action">
+                                <a href="{{ agent.agency_Link }}">VISIT</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+        </div>
+
+    </div>
+</section>
+
+<div class="divider "></div>
+
+{% endblock %}
