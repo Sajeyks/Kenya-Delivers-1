@@ -36,9 +36,18 @@ def searchResults(request):
 	search_agency = request.GET.get('search')
 
 	if search_agency:
-		agency = Agency.objects.filter(Q(agency_Title__icontains=search_agency ) | Q(agency_Description__icontains=search_agency))
+		agency = Agency.objects.filter(Q(agency_Title__icontains=search_agency )) # | Q(agency_Description__icontains=search_agency))
+		
 	else:
 		agency = Agency.objects.all()	
 
 
-	return render(request, "search.html", {'agency':agency})
+	if not agency:
+		return HttpResponse("OOPS!! We couldnt find any match for your search...")
+	
+	else:
+		return render(request, "search.html", {'agency':agency})	
+
+	
+
+	

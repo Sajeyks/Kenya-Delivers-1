@@ -1,4 +1,37 @@
-{% extends 'base.html' %} 
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Import Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>KenyaDelivers</title>
+    <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body id="home" class="scrollspy">
+    <!--Section Navbar-->
+    <div class = "navbar-fixed">
+        <nav class="teal" >
+            <div class="nav-wrapper black-text">
+            <a href="https://kenyadelivers.co.ke" class="brand-logo" >
+                <img src="{% static 'images/kdlogo1.jpg' %}" alt="kenyadelivers" width="270" height="63">
+            </a>
+            <a href="#" data-target = "mobile-nav" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <ul id="nav-mobile" class="right hide-on-med-and-down ">
+                <li class="light black-text text-lighten-3"><a href="/search">Search</a></li>
+                <li class="light grey-text text-lighten-3"><a href="badges.html">Tenders</a></li>
+                <li class="light grey-text text-lighten-3"><a href="collapsible.html">Government</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+
 {% block content %}
 
 <!--Section Icon Boxes-->
@@ -35,3 +68,5 @@
 <div class="divider "></div>
 
 {% endblock %}
+</body>
+</html>
