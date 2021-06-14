@@ -2,6 +2,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 from .models import Agency,agencyCategory
 from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def homepage(request):
@@ -17,18 +18,24 @@ def homepage(request):
 
 
 def agencies_category(request, category):
-	agencies = Agency.objects.filter(
-		agency_Category__agency_Category__contains=category
+	agents = Agency.objects.filter(agency_Category__agency_Category__contains=category)
+	page = request.GET.get('page',1)
 
-	)
+	paginator = Paginator(agents, 15)
+	try:
+		agencies = paginator.page(page)
+	except PageNotAnInteger:
+		agencies = paginator.page(1)
+	except EmptyPage:
+		agencies = paginator.page(paginator.num_pages)		
+
 
 	context = {
 		'category': category,
 		'agencies': agencies,
-		
 	}
 	
-	
+
 	return render(request, "agencies.html", context)
 
 

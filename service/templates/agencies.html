@@ -34,4 +34,25 @@
 
 <div class="divider "></div>
 
+{% if agencies.has_other_pages %}
+<ul class="pagination">
+  {% if agencies.has_previous %}  
+    <li class="active"><a href="?page={{ agencies.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+  {% else %}
+    <li class="disabled"><a href="#!"></a></li>
+  {% endif %}  
+  {% for i in agencies.paginator.page_range %}
+     {% if agencies.number == i %}
+    <li class="waves-effect"><a href="?page={{ i }}">{{ i }}</a></li>
+     {% endif %}
+  {% endfor %}  
+  {% if agencies.has_next %} 
+    <li class="waves-effect"><a href="?page={{ agencies.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+  {% else %}
+  <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  {% endif %}
+</ul>
+{% endif %}
+
 {% endblock %}
+
